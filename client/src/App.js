@@ -3,6 +3,13 @@ import axios from 'axios'
 
 const App = () => {
   const [posts, setPosts] = useState([])
+  const [load, setLoad] = useState(false)
+  const btns = () => {
+    setLoad(true)
+    setTimeout(() => {
+        setLoad(false)
+    }, 2000);
+  }
   useEffect(() => {
 
     const fetchPost = async () => {
@@ -15,7 +22,9 @@ const App = () => {
   }, [])
 
   return (
-    <>App</>
+    <>
+      <button disabled={load} onClick={btns} className="btn">Submit </button>
+    </>
   )
 }
 
