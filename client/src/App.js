@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Main from './pages/Main'
+import Navbar from './componets/Navbar'
 
 const App = () => {
   const [posts, setPosts] = useState([])
@@ -7,7 +9,7 @@ const App = () => {
   const btns = () => {
     setLoad(true)
     setTimeout(() => {
-        setLoad(false)
+      setLoad(false)
     }, 2000);
   }
   useEffect(() => {
@@ -17,13 +19,14 @@ const App = () => {
       console.log(res);
     }
 
-    
+
     fetchPost()
   }, [])
 
   return (
     <>
-      <button disabled={load} onClick={btns} className="btn">Submit </button>
+    <Navbar />
+    <Main />
     </>
   )
 }
