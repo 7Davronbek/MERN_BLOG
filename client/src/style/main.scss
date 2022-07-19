@@ -1,12 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&display=swap');
+
+$main: #431eb5;
+
 html {
 
     body {
+        background-color: #dee2e6;
+
+        .h1 {
+            font-family: 'Edu VIC WA NT Beginner', cursive;
+        }
 
 
         .Navbar {
             background-color: #efefef;
             padding: 30px 0;
             box-shadow: 0 0 10px silver;
+
+            h1 {
+
+                a {
+                    font-weight: 600;
+                    text-decoration: none;
+                    color: $main;
+                    letter-spacing: -1px;
+                }
+            }
 
             .ulWrap {
                 display: flex;

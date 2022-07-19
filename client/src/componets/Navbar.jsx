@@ -8,7 +8,7 @@ const Navbar = () => {
                 <div className="row align-items-center">
 
                     <div className="col-3">
-                        <h1><Link to='/'>Blog's</Link></h1>
+                        <h1 className='h1'><Link to='/'>This day</Link></h1>
                     </div>
                     <div className="col-6 ms-auto">
                         <div className="ulWrap">
