@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -12,8 +12,8 @@ const Navbar = () => {
                     </div>
                     <div className="col-6 ms-auto">
                         <div className="ulWrap">
-                            <a href="/">Home</a>
-                            <a href="/">Blogs</a>
+                            <Link to='/'>Home</Link>
+                            <Link to='/'>Blogs</Link>
                         </div>
                     </div>
                 </div>

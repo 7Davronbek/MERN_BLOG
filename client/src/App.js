@@ -1,34 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import Main from './pages/Main'
-import Navbar from './componets/Navbar'
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+import Main from "./pages/Main";
+import Navbar from "./componets/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
-  const [posts, setPosts] = useState([])
-  const [load, setLoad] = useState(false)
-  const btns = () => {
-    setLoad(true)
-    setTimeout(() => {
-      setLoad(false)
-    }, 2000);
-  }
-  useEffect(() => {
+//   const [posts, setPosts] = useState([]);
+//   const [load, setLoad] = useState(false);
+//   const btns = () => {
+//     setLoad(true);
+//     setTimeout(() => {
+//       setLoad(false);
+//     }, 2000);
+//   };
+//   useEffect(() => {
+//     const fetchPost = async () => {
+//       const res = await axios.get("/posts");
+//       console.log(res);
+//     };
 
-    const fetchPost = async () => {
-      const res = await axios.get('/posts')
-      console.log(res);
-    }
-
-
-    fetchPost()
-  }, [])
+//     fetchPost();
+//   }, []);
 
   return (
     <>
-    <Navbar />
-    <Main />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
