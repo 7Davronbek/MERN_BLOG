@@ -37,5 +37,48 @@ html {
                 }
             }
         }
+
+        .News {
+            padding: 50px 0;
+
+            .cards {
+                transition: all .5s ease-in-out;
+
+                .cardsBody {
+                    text-decoration: none;
+                    color: #000;
+                }
+
+                .img {
+                    overflow: hidden;
+
+                    img {
+                        transition: all .5s ease;
+                        border-radius: 10px;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                i {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                }
+
+                &:hover {
+
+                    .img {
+
+                        img {
+                            transform: scale(1.04);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
