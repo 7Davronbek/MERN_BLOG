@@ -3,6 +3,7 @@
 import Main from "./pages/Main";
 import Navbar from "./componets/Navbar";
 import { Route, Routes } from "react-router-dom";
+import PostId from "./pages/PostId";
 
 const App = () => {
 //   const [posts, setPosts] = useState([]);
@@ -27,7 +28,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/post/:id" element={<Main />} />
+        <Route path="/post/:id" element={<PostId />} />
       </Routes>
     </>
   );
