@@ -27,6 +27,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/post/:id" element={<Main />} />
       </Routes>
     </>
   );
