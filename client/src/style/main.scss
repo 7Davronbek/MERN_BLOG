@@ -15,6 +15,11 @@ html {
             font-family: 'Edu VIC WA NT Beginner', cursive;
         }
 
+        a {
+            outline: none;
+            text-decoration: none;
+            color: $main;
+        }
 
         .Navbar {
             background-color: #efefef;
@@ -102,6 +107,61 @@ html {
 
             h1 {
                 font-size: 35px;
+            }
+        }
+
+        .Category {
+            padding: 20px 30px;
+
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 12px;
+
+                a {
+                    color: $main;
+                    font-size: 18px;
+                    margin-top: 11px;
+                    font-weight: 600;
+                    text-decoration: none;
+                }
+            }
+
+            h1,
+            h3 {
+                font-size: 30px;
+                border: 4px solid #7c7c7c;
+                border-right: none;
+                border-left: none;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 27px;
+                color: #565656;
+                text-transform: uppercase;
+            }
+
+            .img {
+                height: 300px;
+                margin: 20px 0;
+                border-radius: 20px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+                }
+            }
+
+            h2 {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            h3 {
+                margin-top: 20px;
             }
         }
     }

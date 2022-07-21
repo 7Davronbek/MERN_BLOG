@@ -1,6 +1,18 @@
+import axios from 'axios'
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const Category = () => {
+    const [cat, setCat] = useState([])
+    const getCat = async () => {
+        const res = await axios.get('/categories')
+        setCat(res.data)
+    }
+
+    useEffect(() => {
+        getCat()
+    }, [])
     return (
         <div className='Category'>
             <h1>About me</h1>
@@ -10,11 +22,11 @@ const Category = () => {
             <h2>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore totam odio laborum sint nam consectetur quos officia eaque, sit eum!
             </h2>
-            <h4>Categories</h4>
+            <h3>Categories</h3>
             <div className="sidebar">
-                <a href="#">Music</a>
-                <a href="#">Games</a>
-                <a href="#">Photoes</a>
+                {cat?.map((c) => (
+                    <a key={c._id} href="#">{c.name}</a>
+                ))}
             </div>
         </div>
     )
