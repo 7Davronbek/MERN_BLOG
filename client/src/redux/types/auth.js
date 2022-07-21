@@ -1,0 +1,1 @@
+export const UPDATESTATE = 'AUTH_UPDATESTATE'

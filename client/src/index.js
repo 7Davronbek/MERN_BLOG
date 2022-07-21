@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/main.scss";
-import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { applyMiddleware, createStore } from "redux";
+import { rootReducer } from "./redux/reducers/rootReducer";
+import { DEVTOOLS } from "./tools/contstants";
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <App />
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>
 );
 
 reportWebVitals();
