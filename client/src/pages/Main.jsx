@@ -4,7 +4,7 @@ import News from '../componets/News'
 const Main = () => {
   return (
     <>
-    <News />
+      <News />
     </>
   )
 }

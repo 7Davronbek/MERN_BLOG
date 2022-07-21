@@ -6,23 +6,6 @@ import { Route, Routes } from "react-router-dom";
 import PostId from "./pages/PostId";
 
 const App = () => {
-//   const [posts, setPosts] = useState([]);
-//   const [load, setLoad] = useState(false);
-//   const btns = () => {
-//     setLoad(true);
-//     setTimeout(() => {
-//       setLoad(false);
-//     }, 2000);
-//   };
-//   useEffect(() => {
-//     const fetchPost = async () => {
-//       const res = await axios.get("/posts");
-//       console.log(res);
-//     };
-
-//     fetchPost();
-//   }, []);
-
   return (
     <>
       <Navbar />
