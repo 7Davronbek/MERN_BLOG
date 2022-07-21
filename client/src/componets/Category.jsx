@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Category = () => {
     const [cat, setCat] = useState([])
@@ -25,7 +26,7 @@ const Category = () => {
             <h3>Categories</h3>
             <div className="sidebar">
                 {cat?.map((c) => (
-                    <a key={c._id} href="#">{c.name}</a>
+                    <Link to={`/?cat=${c.name}`} key={c._id}>{c.name}</Link>
                 ))}
             </div>
         </div>

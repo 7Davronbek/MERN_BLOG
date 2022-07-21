@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react'
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Category from './Category';
 
 const News = () => {
     const [posts, setPosts] = useState([])
-    const getPosts = async () => {
-        const res = await axios.get("/posts")
-        setPosts(res.data)
-    }
+    const { search } = useLocation()
 
     useEffect(() => {
+        const getPosts = async () => {
+            const res = await axios.get(`/posts${search}`)
+            setPosts(res.data)
+        }
+
         getPosts()
-    }, [])
+
+    }, [search])
 
     return (
         <div className='News'>

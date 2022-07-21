@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const PostId = () => {
     const [post, setPost] = useState({})
@@ -38,7 +38,7 @@ const PostId = () => {
                             </div>
                         </div>
                         <div className="author d-flex align-items-center justify-content-between my-2">
-                            <h5>Author: <a href="#">{post.username}</a></h5>
+                            <h5>Author: <Link to={`/?user=${post.username}`}>{post.username}</Link></h5>
                             <i>{new Date(post.createdAt).toDateString()}</i>
                         </div>
                         <h6>{post.desc}</h6>
