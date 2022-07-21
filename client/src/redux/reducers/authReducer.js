@@ -1,8 +1,9 @@
+import { USER } from "../../tools/contstants";
 import { UPDATESTATE } from "../types/auth";
 
 const initialState = {
   isLoading: false,
-  user: {},
+  user: JSON.parse(localStorage.getItem(USER)) || null,
   error: false,
 };
 
