@@ -1,8 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
+import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+import { send } from '../redux/actions/authAction';
+
+const Login = (props) => {
+    const dispatch = useDispatch()
+
+    console.log(props);
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(false)
@@ -10,17 +17,17 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault()
     }
-    
+
     return (
         <div className='Login Register'>
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h1 className="h1 text-center">Login</h1>
+                        <h1 onClick={() => dispatch(send())} className="h1 text-center">Login</h1>
 
                         <form onSubmit={handleLogin}>
                             {error && <h6>Something went wrong! Try again!</h6>}
-                            
+
                             {/* <label htmlFor="Username">Username</label>
                             <input
                                 type="text"
@@ -48,7 +55,7 @@ const Login = () => {
                             <button type="submit" className='btn'>Login</button>
                             <Link to='/register'>Don't have an account?</Link>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -56,4 +63,11 @@ const Login = () => {
     )
 }
 
-export default Login
+export const mapStateToProps = state => {
+    console.log(state)
+    return {
+        error: state.auth.error,    
+    }
+}
+
+export default connect(mapStateToProps, { send })(Login)

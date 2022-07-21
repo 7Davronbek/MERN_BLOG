@@ -9,7 +9,6 @@ import { HashRouter as Router } from "react-router-dom";
 
 import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "./redux/reducers/rootReducer";
-import { DEVTOOLS } from "./tools/contstants";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";

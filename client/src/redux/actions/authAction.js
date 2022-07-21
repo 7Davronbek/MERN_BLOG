@@ -1,3 +1,4 @@
+import axios from "axios";
 import { UPDATESTATE } from "../types/auth";
 
 export const updateState = (state) => {
@@ -7,6 +8,11 @@ export const updateState = (state) => {
   };
 };
 
-export const send = () => {
-    console.log('send');
-}
+export const send = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/posts");
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
