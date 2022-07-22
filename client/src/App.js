@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { connect } from "react-redux";
 import Write from "./pages/Write";
+import Profile from "./pages/Profile";
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/post/:id" element={<PostId />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/write" element={props.user ? <Write /> : <Login />} />
       </Routes>
     </>

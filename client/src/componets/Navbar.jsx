@@ -1,7 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <div className='Navbar'>
             <div className="container">
@@ -15,8 +16,20 @@ const Navbar = () => {
                             <Link to='/'>Home</Link>
                             <Link to='/blogs'>Blogs</Link>
                             <Link to='/write'>Write</Link>
-                            <Link to='/register'>Register</Link>
-                            <Link to='/login'>Login</Link>
+                            {props.user && <>
+                                <Link to='/profile' className="userImg">
+                                    <img src="/images/1.webp" alt="" />
+                                </Link>
+                                <b >Logout</b>
+                            </>}
+
+                            {
+                                !props.user &&
+                                <>
+                                    <Link to='/register'>Register</Link>
+                                    <Link to='/login'>Login</Link>
+                                </>
+                            }
                         </div>
                     </div>
                 </div>
@@ -25,4 +38,10 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const mapStateToProps = state => {
+    return {
+        user: state.auth.user
+    }
+}
+
+export default connect(mapStateToProps, null)(Navbar)
