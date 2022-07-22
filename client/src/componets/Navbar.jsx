@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { logout } from '../redux/actions/authAction'
 
 const Navbar = (props) => {
+    console.log(props.user?.profilePic);
     return (
         <div className='Navbar'>
             <div className="container">
@@ -19,9 +20,9 @@ const Navbar = (props) => {
                             <Link to='/write'>Write</Link>
                             {props.user && <>
                                 <Link to='/profile' className="userImg">
-                                    <img src="/images/1.webp" alt="" />
+                                    <img src={props.user.profilePic} alt="" />
                                 </Link>
-                                <b onClick={logout}>Logout</b>
+                                <b onClick={props.logout}>Logout</b>
                             </>}
 
                             {

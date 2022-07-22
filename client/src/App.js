@@ -21,7 +21,7 @@ const App = (props) => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/post/:id" element={<PostId />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={props.user ? <Profile /> : <Login />} />
         <Route path="/write" element={props.user ? <Write /> : <Login />} />
       </Routes>
     </>

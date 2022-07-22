@@ -1,4 +1,5 @@
 import axios from "axios";
+import { USER } from "../../tools/contstants";
 import { UPDATESTATE } from "../types/auth";
 
 export const updateState = (state) => {
@@ -20,6 +21,8 @@ export const send = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     dispatch(updateState({user: null}))
+    localStorage.setItem(USER, null)
+    console.log('qwe');
   } catch(err) {
     console.log(err);
   }
