@@ -7,8 +7,10 @@ import PostId from "./pages/PostId";
 import News from "./componets/News";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { connect } from "react-redux";
+import Write from "./pages/Write";
 
-const App = () => {
+const App = (props) => {
   return (
     <>
       <Navbar />
@@ -18,9 +20,16 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/post/:id" element={<PostId />} />
+        <Route path="/write" element={props.user ? <Write /> : <Login />} />
       </Routes>
     </>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.auth.user,
+  };
+};
+
+export default connect(mapStateToProps, null)(App);

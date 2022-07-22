@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useRef } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { USER } from '../tools/contstants'
 
 import { send, updateState } from '../redux/actions/authAction';
@@ -10,11 +10,10 @@ import { send, updateState } from '../redux/actions/authAction';
 const Login = (props) => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const userRef = useRef()
     const passwordRef = useRef()
-
-    console.log(props);
 
     const handleLogin = async (e) => {
         dispatch(updateState({ error: false, isLoading: true }))
@@ -24,12 +23,11 @@ const Login = (props) => {
             const res = await axios.post('/auth/login', { username: userRef.current.value, password: passwordRef.current.value })
             dispatch(updateState({ user: res.data, isLoading: false }))
             localStorage.setItem(USER, JSON.stringify(res.data))
+            navigate('/', { replace: true })
         } catch (err) {
             dispatch(updateState({ error: true, isLoading: false }))
         }
     }
-
-    console.log(props.user);
 
     return (
         <div className='Login Register'>
@@ -70,7 +68,7 @@ const Login = (props) => {
     )
 }
 
-export const mapStateToProps = state => {
+const mapStateToProps = state => {
     return {
         error: state.auth.error,
         isLoading: state.auth.isLoading,
