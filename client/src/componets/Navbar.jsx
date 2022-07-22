@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { logout } from '../redux/actions/authAction'
 
 const Navbar = (props) => {
     return (
@@ -11,7 +12,7 @@ const Navbar = (props) => {
                     <div className="col-3">
                         <h1 className='h1'><Link to='/'>This day</Link></h1>
                     </div>
-                    <div className="col-6 ms-auto">
+                    <div className="col-8 ms-auto">
                         <div className="ulWrap">
                             <Link to='/'>Home</Link>
                             <Link to='/blogs'>Blogs</Link>
@@ -20,7 +21,7 @@ const Navbar = (props) => {
                                 <Link to='/profile' className="userImg">
                                     <img src="/images/1.webp" alt="" />
                                 </Link>
-                                <b >Logout</b>
+                                <b onClick={logout}>Logout</b>
                             </>}
 
                             {
@@ -44,4 +45,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Navbar)
+export default connect(mapStateToProps, { logout })(Navbar)

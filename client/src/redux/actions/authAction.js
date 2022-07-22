@@ -16,3 +16,11 @@ export const send = () => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const logout = () => async (dispatch) => {
+  try {
+    dispatch(updateState({user: null}))
+  } catch(err) {
+    console.log(err);
+  }
+}

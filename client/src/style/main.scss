@@ -15,7 +15,12 @@ html {
             font-family: 'Edu VIC WA NT Beginner', cursive;
         }
 
-        a, b {
+        img {
+            user-select: none;
+        }
+
+        a,
+        b {
             font-weight: 600 !important;
             cursor: pointer;
             outline: none;
@@ -195,7 +200,7 @@ html {
                 border-radius: 17px;
                 padding: 70px 55px;
                 backdrop-filter: blur(100px);
-                
+
                 h6 {
                     color: #ff1b1b;
                     text-align: center;
