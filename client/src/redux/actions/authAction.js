@@ -20,10 +20,10 @@ export const send = () => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   try {
-    dispatch(updateState({user: null}))
-    localStorage.setItem(USER, null)
-    console.log('qwe');
-  } catch(err) {
+    dispatch(updateState({ user: null }));
+    localStorage.setItem(USER, null);
+    console.log("qwe");
+  } catch (err) {
     console.log(err);
   }
-}
+};

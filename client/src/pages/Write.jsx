@@ -6,7 +6,9 @@ const Write = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    Lorem, ipsum dolor.
+                  <form>
+                    
+                  </form>
                 </div>
             </div>
         </div>
