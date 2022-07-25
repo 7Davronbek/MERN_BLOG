@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Write = (props) => {
+
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
@@ -30,6 +33,7 @@ const Write = (props) => {
         try {
             const res = await axios.post('/posts', newPost)
             console.log(res);
+            navigate(`/post/${res.data._id}`, { replace: true })
         } catch (err) {
             console.log(err);
         }
@@ -46,9 +50,9 @@ const Write = (props) => {
                                 </div>
                             }
                             <label htmlFor="file">+</label>
-                            <input onChange={e => setFile(e.target.files[0])} className='d-none' type="file" id='file' />
-                            <input type="text" className='form-control title' placeholder='Title' />
-                            <textarea className='form-control story' cols="30" rows="10" placeholder='Tell your story....'></textarea>
+                            <input required onChange={e => setFile(e.target.files[0])} className='d-none' type="file" id='file' />
+                            <input required onChange={e => setTitle(e.target.value)} type="text" className='form-control title' placeholder='Title' />
+                            <textarea required onChange={e => setDesc(e.target.value)} className='form-control story' cols="30" rows="10" placeholder='Tell your story....'></textarea>
 
                             <button className="btn myBtn">Create post</button>
                         </form>
