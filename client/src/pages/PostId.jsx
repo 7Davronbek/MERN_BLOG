@@ -41,7 +41,7 @@ const PostId = (props) => {
                             {post.username === props.user?.username && (
                                 <div className="d-flex aling-items-center ms-auto">
                                     <button className="btn btn-outline-dark me-3">Edit</button>
-                                    <button onClick={(id, user, navigate) => props.handleDelete(post._id, props.user.username, navigate)} className="btn btn-outline-danger">Delete</button>
+                                    <button onClick={(id, user, nav) => props.handleDelete(post._id, props.user.username, navigate)} className="btn btn-outline-danger">Delete</button>
                                 </div>
                             )
                             }
@@ -62,7 +62,8 @@ const PostId = (props) => {
 
 const mapStateToProps = state => {
     return {
-        user: state.auth.user
+        user: state.auth.user,
+        updateMode: state.post
     }
 }
 

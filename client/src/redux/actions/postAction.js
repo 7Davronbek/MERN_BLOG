@@ -9,13 +9,13 @@ export const postupdateState = (state) => {
 };
 
 // DELETE POST BY ID AND USERNAME
-export const handleDelete = (id, user, navigate) => async (dispatch) => {
+export const handleDelete = (id, user, nav) => async (dispatch) => {
   try {
     await axios.delete(`/posts/${id}`, {
       data: { username: user },
     });
-    window.location.replace("/");
-    navigate('/', {replace: true})
+    // window.location.replace("/");
+    nav('/', {replace: true})
   } catch (err) {
     console.log(err);
   }

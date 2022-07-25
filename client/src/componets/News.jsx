@@ -13,7 +13,6 @@ const News = () => {
         const getPosts = async () => {
             const res = await axios.get(`/posts${search}`)
             setPosts(res.data)
-            console.log(res);
         }
 
         getPosts()
