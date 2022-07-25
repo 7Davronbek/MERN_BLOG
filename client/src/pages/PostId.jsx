@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { PF } from '../tools/contstants'
 
 import { handleDelete } from '../redux/actions/postAction'
@@ -11,7 +11,9 @@ import { handleDelete } from '../redux/actions/postAction'
 const PostId = (props) => {
     const [post, setPost] = useState({})
     const location = useLocation()
+    const navigate = useNavigate()
     const path = location.pathname.split('/')[2]
+
 
     useEffect(() => {
         const getPost = async () => {
@@ -39,7 +41,7 @@ const PostId = (props) => {
                             {post.username === props.user?.username && (
                                 <div className="d-flex aling-items-center ms-auto">
                                     <button className="btn btn-outline-dark me-3">Edit</button>
-                                    <button onClick={(e) => props.handleDelete(post._id)} className="btn btn-outline-danger">Delete</button>
+                                    <button onClick={(id, user, navigate) => props.handleDelete(post._id, props.user.username, navigate)} className="btn btn-outline-danger">Delete</button>
                                 </div>
                             )
                             }

@@ -22,7 +22,7 @@ export const logout = () => async (dispatch) => {
   try {
     dispatch(updateState({ user: null }));
     localStorage.setItem(USER, null);
-    window.location.replace('/')
+    window.location.replace("/");
   } catch (err) {
     console.log(err);
   }

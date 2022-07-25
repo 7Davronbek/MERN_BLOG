@@ -1,17 +1,22 @@
 import axios from "axios";
-import { UPDATESTATE } from "../types/auth";
+import { POST_UPDATESTATE } from "../types/post";
 
-export const updateState = (state) => {
+export const postupdateState = (state) => {
   return {
-    type: UPDATESTATE,
+    type: POST_UPDATESTATE,
     payload: state,
   };
 };
 
-export const handleDelete = (id) => async (dispatch) => {
-    try {   
-        await axios.delete(`/posts/${id}`)
-    } catch (err) {
-        console.log(err);
-    }
-}
+// DELETE POST BY ID AND USERNAME
+export const handleDelete = (id, user, navigate) => async (dispatch) => {
+  try {
+    await axios.delete(`/posts/${id}`, {
+      data: { username: user },
+    });
+    window.location.replace("/");
+    navigate('/', {replace: true})
+  } catch (err) {
+    console.log(err);
+  }
+};

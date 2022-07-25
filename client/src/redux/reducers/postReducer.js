@@ -3,6 +3,9 @@ import { POST_UPDATESTATE } from "../types/post";
 const initialState = {
   isLoading: false,
   error: false,
+  updateMode: false,
+  title: "",
+  desc: "",
 };
 
 export const postReducer = (state = initialState, action) => {
