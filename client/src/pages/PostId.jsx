@@ -5,7 +5,7 @@ import { connect, useDispatch } from 'react-redux'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { PF } from '../tools/contstants'
 
-import { postupdateState, handleDelete } from '../redux/actions/postAction'
+import { postupdateState, handleDelete, handleEdit } from '../redux/actions/postAction'
 
 const PostId = (props) => {
     const [post, setPost] = useState({})
@@ -19,6 +19,8 @@ const PostId = (props) => {
         const getPost = async () => {
             const res = await axios.get(`/posts/${path}`)
             setPost(res.data)
+            dispatch(postupdateState({ title: res.data.title }))
+            dispatch(postupdateState({ desc: res.data.desc }))
         }
         getPost()
     }, [path])
@@ -38,7 +40,7 @@ const PostId = (props) => {
 
                         <div className="top d-flex align-items-center">
                             {props.updateMode ? (<>
-                                <input value={post.title} autoFocus type="text" className='form-control h2' />
+                                <input value={props.title} onChange={(e) => dispatch(postupdateState({ title: e.target.value }))} autoFocus type="text" className='form-control h2' />
                             </>) : (<>
                                 <h1>{post.title}</h1>
                                 {post.username === props.user?.username && (
@@ -54,13 +56,13 @@ const PostId = (props) => {
                             <i>{new Date(post.createdAt).toDateString()}</i>
                         </div>
                         {props.updateMode ? (<>
-                            <textarea value={post.desc} className='form-control h6' cols="10" rows="10"></textarea>
+                            <textarea onChange={(e) => dispatch(postupdateState({ desc: e.target.value }))} value={props.desc} className='form-control h6' cols="10" rows="10"></textarea>
                         </>) : (<>
                             <h6>{post.desc}</h6>
                         </>)}
 
                         {props.updateMode && <>
-                            <button onClick={() => dispatch(postupdateState({ updateMode: false }))} className="btn myBtn">Update Post</button>
+                            <button onClick={(id, username, title, desc) => { props.handleEdit(post._id, props.user.username, props.title, props.desc) }} className="btn myBtn">Update Post</button>
                         </>}
                     </div>
 
@@ -74,8 +76,10 @@ const PostId = (props) => {
 const mapStateToProps = state => {
     return {
         user: state.auth.user,
-        updateMode: state.post.updateMode
+        updateMode: state.post.updateMode,
+        title: state.post.title,
+        desc: state.post.desc
     }
 }
 
-export default connect(mapStateToProps, { postupdateState, handleDelete })(PostId)
+export default connect(mapStateToProps, { postupdateState, handleDelete, handleEdit })(PostId)

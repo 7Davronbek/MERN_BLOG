@@ -8,6 +8,15 @@ export const postupdateState = (state) => {
   };
 };
 
+// GET SINGLE POST
+export const getSinglePost = (path) => async (dispatch) => {
+  try {
+    
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 // DELETE POST BY ID AND USERNAME
 export const handleDelete = (id, user, nav) => async (dispatch) => {
   try {
@@ -15,8 +24,20 @@ export const handleDelete = (id, user, nav) => async (dispatch) => {
       data: { username: user },
     });
     // window.location.replace("/");
-    nav('/', {replace: true})
+    nav("/", { replace: true });
   } catch (err) {
     console.log(err);
   }
+};
+
+// EDIT POST BY ID
+export const handleEdit = (id, username, title, desc) => async (dispatch) => {
+  try {
+    await axios.put(`/posts/${id}`, {
+      username,
+      title,
+      desc,
+    });
+    dispatch(postupdateState({ updateMode: false }));
+  } catch (err) {}
 };
