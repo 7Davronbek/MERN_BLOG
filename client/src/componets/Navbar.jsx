@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { logout } from '../redux/actions/authAction'
 
 const Navbar = (props) => {
-    console.log(props.user?.profilePic);
     return (
         <div className='Navbar'>
             <div className="container">

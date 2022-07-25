@@ -15,6 +15,25 @@ html {
             font-family: 'Edu VIC WA NT Beginner', cursive;
         }
 
+        .myBtn {
+            padding: 17px 45px;
+            border-radius: 7px;
+            color: #000;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 4px solid $main;
+            transition: all .2s ease-in-out;
+            font-size: 19px;
+            margin-left: auto;
+            display: block;
+            margin-top: 35px;
+
+            &:hover {
+                background-color: $main;
+                color: #fff;
+            }
+        }
+
         img {
             user-select: none;
         }
@@ -245,6 +264,53 @@ html {
 
                 @media(max-width: 992px) {
                     width: 100%;
+                }
+            }
+        }
+
+        .Write {
+            padding: 50px 0;
+
+            form {
+
+                label {
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    border: 2px dashed silver;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: silver;
+                    margin: auto;
+                    margin-bottom: 30px;
+                    cursor: pointer;
+                }
+
+                .title {
+                    font-size: 38px;
+                    font-weight: 600;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 1px solid silver;
+                    margin-bottom: 30px;
+                    color: #000;
+                }
+
+                .form-control {
+                    box-shadow: none;
+
+                    &:focus {
+                        box-shadow: 0 2px 10px #441eb52a;
+                    }
+                }
+
+                .story {
+                    background: transparent;
+                    border: 1px solid silver;
+                    font-size: 20px;
+                    color: #444;
                 }
             }
         }
