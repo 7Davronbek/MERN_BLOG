@@ -7,3 +7,11 @@ export const updateState = (state) => {
     payload: state,
   };
 };
+
+export const handleDelete = (id) => async (dispatch) => {
+    try {   
+        await axios.delete(`/posts/${id}`)
+    } catch (err) {
+        console.log(err);
+    }
+}

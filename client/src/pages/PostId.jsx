@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { PF } from '../tools/contstants'
 
+import { handleDelete } from '../redux/actions/postAction'
+
 const PostId = (props) => {
     const [post, setPost] = useState({})
     const location = useLocation()
@@ -37,7 +39,7 @@ const PostId = (props) => {
                             {post.username === props.user?.username && (
                                 <div className="d-flex aling-items-center ms-auto">
                                     <button className="btn btn-outline-dark me-3">Edit</button>
-                                    <button className="btn btn-outline-danger">Delete</button>
+                                    <button onClick={(e) => props.handleDelete(post._id)} className="btn btn-outline-danger">Delete</button>
                                 </div>
                             )
                             }
@@ -62,4 +64,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(PostId)
+export default connect(mapStateToProps, { handleDelete })(PostId)

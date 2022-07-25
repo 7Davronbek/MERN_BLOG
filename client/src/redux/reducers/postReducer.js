@@ -5,7 +5,7 @@ const initialState = {
   error: false,
 };
 
-export const authReducer = (state = initialState, action) => {
+export const postReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_UPDATESTATE:
       return {
