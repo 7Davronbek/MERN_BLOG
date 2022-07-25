@@ -133,6 +133,26 @@ html {
         .PostId {
             padding: 50px 0;
 
+            .h6 {
+                height: 100px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid silver;
+                box-shadow: none;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .h2 {
+                font-size: 33px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid silver;
+                box-shadow: none;
+                font-weight: 600;
+                text-align: center;
+            }
+
             .img {
                 width: 100%;
                 height: 400px;
@@ -147,6 +167,8 @@ html {
 
             h1 {
                 font-size: 35px;
+                width: 90%;
+                text-align: center;
             }
         }
 
