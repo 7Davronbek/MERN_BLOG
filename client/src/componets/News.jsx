@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Category from './Category';
+import { PF } from '../tools/contstants';
 
 const News = () => {
     const [posts, setPosts] = useState([])
@@ -12,6 +13,7 @@ const News = () => {
         const getPosts = async () => {
             const res = await axios.get(`/posts${search}`)
             setPosts(res.data)
+            console.log(res);
         }
 
         getPosts()
@@ -33,7 +35,7 @@ const News = () => {
                                     <div className="cards text-center">
                                         <div className="img">
                                             {post.photo &&
-                                                <img src={post.photo} alt="" className="w-100" />
+                                                <img src={PF + post.photo} alt="" className="w-100" />
                                             }
                                         </div>
                                         <div className="category mt-2 d-flex align-items-center justify-content-center">
