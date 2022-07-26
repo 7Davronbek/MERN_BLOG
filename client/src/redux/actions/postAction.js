@@ -11,11 +11,14 @@ export const postupdateState = (state) => {
 // GET SINGLE POST
 export const getSinglePost = (path) => async (dispatch) => {
   try {
-    const res = await axios.get(`/posts/${path}`)
-    // setPost(res.data)
-    dispatch(postupdateState({ title: res.data.title, desc: res.data.desc, post: res.data }))
-    // dispatch(postupdateState({  }))
-    console.log(res);
+    const res = await axios.get(`/posts/${path}`);
+    dispatch(
+      postupdateState({
+        title: res.data.title,
+        desc: res.data.desc,
+        post: res.data,
+      })
+    );
   } catch (err) {
     console.log(err);
   }
@@ -27,7 +30,6 @@ export const handleDelete = (id, user, nav) => async (dispatch) => {
     await axios.delete(`/posts/${id}`, {
       data: { username: user },
     });
-    // window.location.replace("/");
     nav("/", { replace: true });
   } catch (err) {
     console.log(err);
@@ -42,6 +44,8 @@ export const handleEdit = (id, username, title, desc) => async (dispatch) => {
       title,
       desc,
     });
-    dispatch(postupdateState({ updateMode: false }));
+    getSinglePost();
+    dispatch(postupdateState({ updateMode: false }, getSinglePost()));
+    window.location.reload();
   } catch (err) {}
 };

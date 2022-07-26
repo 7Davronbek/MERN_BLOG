@@ -45,7 +45,7 @@ const News = () => {
                                         <Link to={`/post/${post._id}`} className="cardsBody">
                                             <h3>{post.title}</h3>
                                             <i>{new Date(post.createdAt).toDateString()}</i>
-                                            <p className='text-start mt-3'>{post.title}</p>
+                                            <p className='text-start mt-3'>{post.desc}</p>
                                         </Link>
 
                                     </div>
