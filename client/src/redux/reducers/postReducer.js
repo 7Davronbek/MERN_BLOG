@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   error: false,
   updateMode: false,
+  post: {},
   title: "",
   desc: "",
 };

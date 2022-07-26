@@ -11,7 +11,11 @@ export const postupdateState = (state) => {
 // GET SINGLE POST
 export const getSinglePost = (path) => async (dispatch) => {
   try {
-    
+    const res = await axios.get(`/posts/${path}`)
+    // setPost(res.data)
+    dispatch(postupdateState({ title: res.data.title, desc: res.data.desc, post: res.data }))
+    // dispatch(postupdateState({  }))
+    console.log(res);
   } catch (err) {
     console.log(err);
   }
