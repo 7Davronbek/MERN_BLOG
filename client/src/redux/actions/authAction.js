@@ -9,7 +9,8 @@ export const updateState = (state) => {
   };
 };
 
-export const send = () => async (dispatch) => {
+// TEST
+export const login = () => async (dispatch) => {
   try {
     const res = await axios.get("/posts");
     console.log(res);
@@ -18,6 +19,7 @@ export const send = () => async (dispatch) => {
   }
 };
 
+// LOGOUT USER
 export const logout = () => async (dispatch) => {
   try {
     dispatch(updateState({ user: null }));

@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className='Profile'>
             <div className="container">
@@ -13,7 +14,10 @@ const Profile = () => {
                                 <label htmlFor="picture">Profile picture</label>
                                 <div className="d-flex align-items-center">
                                     <input id='picture' type="file" className='d-none' />
-                                    <div className="img"><img src="/images/1.webp" alt="" /></div>
+                                    <div className="img">
+                                        {props.user.profilePic ? <><img src={props.user.profilePic} alt="" /></> : <img src="/images/1.webp" alt="" />}
+                                        
+                                    </div>
                                     <label htmlFor='picture' className="plus">+</label>
                                 </div>
 
@@ -37,4 +41,10 @@ const Profile = () => {
     )
 }
 
-export default Profile
+const mapStateToProps = state => {
+    return {
+        user: state.auth.user
+    }
+}
+
+export default connect(mapStateToProps, null)(Profile)

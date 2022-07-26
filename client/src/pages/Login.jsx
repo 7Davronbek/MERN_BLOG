@@ -5,7 +5,7 @@ import { connect, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { USER } from '../tools/contstants'
 
-import { send, updateState } from '../redux/actions/authAction';
+import { login, updateState } from '../redux/actions/authAction';
 
 const Login = (props) => {
 
@@ -76,4 +76,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { send })(Login)
+export default connect(mapStateToProps, { login })(Login)
