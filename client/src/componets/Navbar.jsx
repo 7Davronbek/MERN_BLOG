@@ -19,7 +19,7 @@ const Navbar = (props) => {
                             <Link to='/write'>Write</Link>
                             {props.user && <>
                                 <Link to='/profile' className="userImg">
-                                    <img src={props.user.profilePic} alt="" />
+                                    {props.user.profilePic ? <img src={props.user.profilePic} alt="" /> : <img src='/images/1.webp' alt="" />}
                                 </Link>
                                 <b onClick={props.logout}>Logout</b>
                             </>}
