@@ -27,7 +27,7 @@ const Register = () => {
         <div className='Register'>
             <div className="container">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-lg-8 mx-auto">
                         <h1 className="h1 text-center" >Register</h1>
 
                         <form onSubmit={handleRegister}>

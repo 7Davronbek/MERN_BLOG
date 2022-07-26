@@ -33,7 +33,7 @@ const Login = (props) => {
         <div className='Login Register'>
             <div className="container">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-lg-8 mx-auto">
                         <h1
                             // onClick={() => dispatch(send())}
                             className="h1 text-center">Login</h1>

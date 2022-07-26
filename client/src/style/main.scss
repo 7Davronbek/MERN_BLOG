@@ -364,6 +364,12 @@ html {
                 justify-content: center;
                 color: silver;
                 border-radius: 15%;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    color: #000;
+                    border-color: #000;
+                }
             }
 
             h1 {
