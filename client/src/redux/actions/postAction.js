@@ -47,5 +47,7 @@ export const handleEdit = (id, username, title, desc) => async (dispatch) => {
     getSinglePost();
     dispatch(postupdateState({ updateMode: false }, getSinglePost()));
     window.location.reload();
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };
