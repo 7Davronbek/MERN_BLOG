@@ -17,7 +17,7 @@ const News = () => {
 
         getPosts()
 
-    }, [search])
+    })
 
     return (
         <div className='News'>
